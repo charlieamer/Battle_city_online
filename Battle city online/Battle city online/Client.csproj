@@ -37,6 +37,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SDL.dll" />
+    <Content Include="workdir\slike\BattleCitySheet1.bmp" />
+    <Content Include="workdir\slike\podovi.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
