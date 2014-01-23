@@ -42,7 +42,7 @@ namespace Battle_city_online
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             ScreenManager.Instance.LoadContent(Content);
-            ScreenManager.Instance.SetNewScreen(new TestScreen());
+            ScreenManager.Instance.SetNewScreen(new SplashScreen());
         }
 
         /// <summary>
