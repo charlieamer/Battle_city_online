@@ -72,7 +72,7 @@ namespace Battle_city_online
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             ScreenManager.Instance.Draw(spriteBatch);
 

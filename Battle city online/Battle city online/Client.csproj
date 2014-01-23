@@ -60,6 +60,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TransitionScreen.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="GameObject.cs" />
