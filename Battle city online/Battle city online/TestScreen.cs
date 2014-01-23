@@ -17,8 +17,9 @@ namespace Battle_city_online
         {
             base.LoadContent();
             this.obj = new MovableObject();
-            this.obj.LoadContent(this.ContentManager, "workdir/slike/BattleCitySheet1.bmp");
+            this.obj.LoadContent(this.ContentManager, "workdir/slike/BattleCitySheet1.png");
             this.obj.Movement.Direction = Movement.DIRECTION.RIGHT;
+            this.obj.Scale += new Vector2(1,3);
         }
         override public void UnloadContent()
         {

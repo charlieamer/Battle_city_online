@@ -17,7 +17,8 @@ namespace Battle_city_online
         public Movement Movement { get; set; }
         public void Draw(SpriteBatch SpriteBatch, long currentTime)
         {
-            SpriteBatch.Draw(this.Texture, this.Movement.GetCurrentPosition(this.Position,currentTime), this.SourceRect, Color.White);
+            
+            SpriteBatch.Draw(this.Texture, this.Movement.GetCurrentPosition(this.Position, currentTime), this.SourceRect, Color.White, 0.0f, Vector2.Zero, this.Scale, SpriteEffects.None, 0.0f);
         }
     }
 }

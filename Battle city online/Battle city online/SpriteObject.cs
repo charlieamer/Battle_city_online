@@ -14,6 +14,13 @@ namespace Battle_city_online
         protected Rectangle SourceRect;
         protected Texture2D Texture;
 
+        public Vector2 Scale { get; set; }
+
+        public SpriteObject() : base()
+        {
+            this.Scale = new Vector2(1.0f, 1.0f);
+        }
+
         private void Load(ContentManager ContentManager, string Path)
         {
             base.LoadContent(ContentManager);
@@ -34,7 +41,7 @@ namespace Battle_city_online
 
         override public void Draw(SpriteBatch SpriteBatch)
         {
-            SpriteBatch.Draw(this.Texture, this.Position, this.SourceRect, Color.White);
+            SpriteBatch.Draw(this.Texture, this.Position, this.SourceRect, Color.White, 0.0f, Vector2.Zero, this.Scale, SpriteEffects.None, 0.0f);
         }
 
     }
