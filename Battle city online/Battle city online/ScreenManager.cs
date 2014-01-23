@@ -13,12 +13,15 @@ namespace Battle_city_online
     public class ScreenManager
     {
         private static ScreenManager instance;
+        private Screen CurrentScreen, NewScreen;
+        private ContentManager Content;
 
         public Vector2 Dimensions{private set; get;}
+        public IServiceProvider ServiceProvider;
 
         public ScreenManager()
         {
-            Dimensions = new Vector2(1040, 320); //Dimenzije ekrana
+            Dimensions = new Vector2(1024, 768); //Dimenzije ekrana
         }
 
         public static ScreenManager Instance
@@ -34,22 +37,44 @@ namespace Battle_city_online
         }
         public void LoadContent(ContentManager Content)
         {
-
+            this.Content = Content;
+            this.ServiceProvider = Content.ServiceProvider;
         }
 
         public void UnloadContent()
         {
-
+            this.CurrentScreen.UnloadContent();
         }
 
         public void Update(GameTime gameTime)
         {
-
+            if (this.NewScreen != null)
+            {
+                if (this.CurrentScreen != null)
+                    this.CurrentScreen.UnloadContent();
+                this.CurrentScreen = this.NewScreen;
+                this.CurrentScreen.LoadContent();
+                this.NewScreen = null;
+            }
+            if (this.CurrentScreen != null)
+            {
+                this.CurrentScreen.Update(gameTime);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Begin();
 
+            if (this.CurrentScreen != null)
+                this.CurrentScreen.Draw(spriteBatch);
+
+            spriteBatch.End();
+        }
+
+        public void SetNewScreen(Screen NewScreen)
+        {
+            this.NewScreen = NewScreen;
         }
     }
 }
