@@ -61,8 +61,12 @@
     <Content Include="workdir\slike\podovi.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="workdir\slike\tranPic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TransitionScreen.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="GameObject.cs" />
