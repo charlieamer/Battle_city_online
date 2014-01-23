@@ -52,8 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SDL.dll" />
-    <Content Include="workdir\slike\BattleCitySheet1.bmp" />
-    <Content Include="workdir\slike\podovi.bmp" />
+    <Content Include="workdir\slike\BattleCitySheet1.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="workdir\slike\podovi.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainGame.cs" />
