@@ -35,7 +35,7 @@ namespace Battle_city_online
         {
             base.Update(time);
 
-            if(time.TotalGameTime.Seconds > 3)
+            if(time.TotalGameTime.Seconds > 2)
             {
                 ScreenManager.Instance.SetNewScreen(new TransitionScreen());
             }
