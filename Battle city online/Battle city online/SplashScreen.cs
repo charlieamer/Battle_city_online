@@ -16,29 +16,28 @@ namespace Battle_city_online
 
         public SplashScreen () : base()
         {
-            
 
+            this.splashImg = new SpriteObject();
         }
 
         public override void LoadContent()
         {
             base.LoadContent();
-            splashImg = new SpriteObject ();
-            splashImg.LoadContent(this.ContentManager, "workdir/slike/podovi");
+            this.splashImg.LoadContent(this.ContentManager, "workdir/slike/podovi");
         }
         public override void Draw(SpriteBatch batch)
         {
             base.Draw(batch);
-            splashImg.Draw(batch);
+            this.splashImg.Draw(batch);
         }
 
         public override void Update(GameTime time)
         {
             base.Update(time);
-            if(time.ElapsedGameTime.Seconds > 3)
+
+            if(time.TotalGameTime.Seconds > 3)
             {
                 ScreenManager.Instance.SetNewScreen(new TestScreen());
-                Console.WriteLine("hepek");
             }
         }
 

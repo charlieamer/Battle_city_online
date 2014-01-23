@@ -19,6 +19,8 @@ namespace Battle_city_online
         public Vector2 Dimensions{private set; get;}
         public IServiceProvider ServiceProvider;
 
+        private TimeSpan ScreenTime;
+
         public ScreenManager()
         {
             Dimensions = new Vector2(1024, 768); //Dimenzije ekrana
@@ -55,6 +57,8 @@ namespace Battle_city_online
                 this.CurrentScreen = this.NewScreen;
                 this.CurrentScreen.LoadContent();
                 this.NewScreen = null;
+                this.ScreenTime = gameTime.TotalGameTime;
+                gameTime.TotalGameTime -= this.ScreenTime;
             }
             if (this.CurrentScreen != null)
             {
