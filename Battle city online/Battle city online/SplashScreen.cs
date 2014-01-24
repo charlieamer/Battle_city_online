@@ -19,7 +19,7 @@ namespace Battle_city_online
         {
             textObj = new TextObject("test");
             textObj.Position = new Vector2(20, 100);
-            textObj.Text = "Vidis da radi buhahahahaha :P";
+            textObj.Text = "Vidis da radi buhahaahaha :P";
             this.splashImg = new SpriteObject();
         }
 
