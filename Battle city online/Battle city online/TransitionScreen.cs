@@ -14,6 +14,7 @@ namespace Battle_city_online
     {
         MovableObject upper;
         MovableObject lower;
+        private SpriteFont font;
         long time = 0;
 
         public TransitionScreen () : base()
@@ -33,6 +34,8 @@ namespace Battle_city_online
             this.lower.LoadContent(this.ContentManager, "workdir/slike/tranPic");
             this.lower.Movement.Direction = Movement.DIRECTION.UP;
             this.lower.Position = new Vector2(0, ScreenManager.Instance.Dimensions.Y);
+
+            font = this.ContentManager.Load<SpriteFont>("Score");
         }
         override public void Update(GameTime time)
         {
@@ -40,7 +43,10 @@ namespace Battle_city_online
             if(this.time > (int)ScreenManager.Instance.Dimensions.Y / 2)
             {
                 this.upper.Movement.Speed = 0;
+                this.upper.Position = new Vector2(0, 0);
+
                 this.lower.Movement.Speed = 0;
+                this.lower.Position = new Vector2(0, 0 + ScreenManager.Instance.Dimensions.Y /2);
             }
         }
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch batch)
@@ -49,6 +55,11 @@ namespace Battle_city_online
 
             upper.Draw(batch, time);
             lower.Draw(batch, time);
+
+            if(this.time > (int)ScreenManager.Instance.Dimensions.Y / 2)
+            {
+
+            }
 
         }
 
