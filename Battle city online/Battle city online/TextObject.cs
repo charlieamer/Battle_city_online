@@ -25,6 +25,7 @@ namespace Battle_city_online
         }
         public override void Draw(SpriteBatch batch)
         {
+            if (this.visible)
             TextManager.Instance.Draw(this.fontName, this.Text, this.Position, batch, this.Color);
         }
     }

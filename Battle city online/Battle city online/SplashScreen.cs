@@ -39,6 +39,10 @@ namespace Battle_city_online
         {
             base.Update(time);
 
+            if (time.TotalGameTime.Milliseconds > 500)
+                this.textObj.visible = true;
+            else
+                this.textObj.visible = false;
             if(time.TotalGameTime.Seconds > 3)
             {
                 ScreenManager.Instance.SetNewScreen(new TransitionScreen());

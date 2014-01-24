@@ -12,6 +12,7 @@ namespace Battle_city_online
     abstract class GameObject
     {
         protected ContentManager ContentManager;
+        public bool visible = true;
         public Vector2 Position = new Vector2(0, 0);
         public virtual void LoadContent(ContentManager ContentManager)
         {

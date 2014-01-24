@@ -43,6 +43,7 @@ namespace Battle_city_online
 
         override public void Draw(SpriteBatch SpriteBatch)
         {
+            if (this.visible)
             SpriteBatch.Draw(this.Texture, this.Position, this.SourceRect, Color.White, 0.0f, Vector2.Zero, this.Scale, SpriteEffects.None, 0.0f);
         }
 
