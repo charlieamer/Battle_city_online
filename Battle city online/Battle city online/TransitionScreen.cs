@@ -14,7 +14,6 @@ namespace Battle_city_online
     {
         MovableObject upper;
         MovableObject lower;
-        private SpriteFont font;
         long time = 0;
 
         public TransitionScreen () : base()
@@ -30,23 +29,22 @@ namespace Battle_city_online
             this.upper.LoadContent(this.ContentManager, "workdir/slike/tranPic");
             this.upper.Movement.Direction = Movement.DIRECTION.DOWN;
             this.upper.Position = new Vector2(0, 0 - ScreenManager.Instance.Dimensions.Y / 2);
+            this.upper.Scale = new Vector2(ScreenManager.Instance.Dimensions.X, ScreenManager.Instance.Dimensions.Y / 2);
 
             this.lower.LoadContent(this.ContentManager, "workdir/slike/tranPic");
             this.lower.Movement.Direction = Movement.DIRECTION.UP;
             this.lower.Position = new Vector2(0, ScreenManager.Instance.Dimensions.Y);
-
-            font = this.ContentManager.Load<SpriteFont>("Score");
+            this.lower.Scale = new Vector2(ScreenManager.Instance.Dimensions.X, ScreenManager.Instance.Dimensions.Y / 2);
         }
         override public void Update(GameTime time)
         {
-            this.time = (long)time.TotalGameTime.TotalMilliseconds / 10;
+            this.time = (long)time.TotalGameTime.TotalMilliseconds / 2;
             if(this.time > (int)ScreenManager.Instance.Dimensions.Y / 2)
             {
-                this.upper.Movement.Speed = 0;
                 this.upper.Position = new Vector2(0, 0);
-
+                this.upper.Movement.Speed = 0;
+                this.lower.Position = new Vector2(0, ScreenManager.Instance.Dimensions.Y / 2);
                 this.lower.Movement.Speed = 0;
-                this.lower.Position = new Vector2(0, 0 + ScreenManager.Instance.Dimensions.Y /2);
             }
         }
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch batch)
@@ -55,11 +53,6 @@ namespace Battle_city_online
 
             upper.Draw(batch, time);
             lower.Draw(batch, time);
-
-            if(this.time > (int)ScreenManager.Instance.Dimensions.Y / 2)
-            {
-
-            }
 
         }
 
