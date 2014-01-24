@@ -13,10 +13,13 @@ namespace Battle_city_online
     public class SplashScreen : Screen
     {
         SpriteObject splashImg;
+        TextObject textObj;
 
         public SplashScreen () : base()
         {
-
+            textObj = new TextObject("test");
+            textObj.Position = new Vector2(20, 100);
+            textObj.Text = "Vidis da radi buhahaahaha :P";
             this.splashImg = new SpriteObject();
         }
 
@@ -29,13 +32,14 @@ namespace Battle_city_online
         {
             base.Draw(batch);
             this.splashImg.Draw(batch);
+            this.textObj.Draw(batch);
         }
 
         public override void Update(GameTime time)
         {
             base.Update(time);
 
-            if(time.TotalGameTime.Seconds > 2)
+            if(time.TotalGameTime.Seconds > 3)
             {
                 ScreenManager.Instance.SetNewScreen(new TransitionScreen());
             }

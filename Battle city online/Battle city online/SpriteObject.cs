@@ -23,8 +23,10 @@ namespace Battle_city_online
 
         private void Load(ContentManager ContentManager, string Path)
         {
+            Console.Write("Loading texture '" + Path + "' ... ");
             base.LoadContent(ContentManager);
             this.Texture = this.ContentManager.Load<Texture2D>(Path);
+            Console.WriteLine("ok");
         }
 
         public void LoadContent(ContentManager ContentManager, string Path)

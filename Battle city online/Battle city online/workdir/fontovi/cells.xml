@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font name="test" texture="workdir/fontovi/cells.png">
+	<spacing type="Constant Number">
+		<x>16</x>
+		<y>16</y>
+	</spacing>
+	<characters value="                "/>
+	<characters value="                "/>
+	<characters value=' !"#$%&amp;'/>
+	<characters value="'()*+,-./"/>
+	<characters value="0123456789:;&lt;=&gt;?"/>
+	<characters value="@ABCDEFGHIJKLMNO"/>
+	<characters value="PQRSTUVWXYZ[\]^_"/>
+	<characters value="`abcdefghijklmno"/>
+	<characters value="pqrstuvwxyz{|}~ "/>
+</font>

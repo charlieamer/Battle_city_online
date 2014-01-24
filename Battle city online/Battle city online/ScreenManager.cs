@@ -21,7 +21,7 @@ namespace Battle_city_online
 
         private TimeSpan ScreenTime;
 
-        public ScreenManager()
+        private ScreenManager()
         {
             Dimensions = new Vector2(1024, 768); //Dimenzije ekrana
         }
