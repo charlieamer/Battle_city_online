@@ -17,7 +17,7 @@ namespace Battle_city_online
 
         public Vector2 Dimensions{private set; get;}
         public IServiceProvider ServiceProvider;
-
+        private Screen CurrentScreen, NewScreen;
         private TimeSpan ScreenTime;
 
         private ScreenManager()
@@ -36,6 +36,12 @@ namespace Battle_city_online
                 return instance;
             }
         }
+
+        public void UnloadContent()
+        {
+            this.CurrentScreen.UnloadContent();
+        }
+
         public void LoadContent(ContentManager Content)
         {
             this.Content = Content;
@@ -46,7 +52,20 @@ namespace Battle_city_online
 
         public void Update(GameTime gameTime)
         {
-            
+            if (this.NewScreen != null)
+            {
+                if (this.CurrentScreen != null)
+                    this.CurrentScreen.UnloadContent();
+                this.CurrentScreen = this.NewScreen;
+                this.CurrentScreen.LoadContent();
+                this.NewScreen = null;
+                this.ScreenTime = gameTime.TotalGameTime;
+                gameTime.TotalGameTime -= this.ScreenTime;
+            }
+            if (this.CurrentScreen != null)
+            {
+                this.CurrentScreen.Update(gameTime);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -62,6 +81,12 @@ namespace Battle_city_online
         public void SetNewScreen(Screen NewScreen)
         {
             this.NewScreen = NewScreen;
+        }
+
+        public void SetNewScreen(Screen NewScreen, String text)
+        {
+            this.NewScreen = new TransitionScreen(NewScreen,text);
+
         }
     }
 }

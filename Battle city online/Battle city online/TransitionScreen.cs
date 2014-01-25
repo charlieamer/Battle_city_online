@@ -14,14 +14,19 @@ namespace Battle_city_online
     {
         MovableObject upper;
         MovableObject lower;
-        private Screen CurrentScreen, NewScreen;
+        Screen NewScreen;
+        TextObject textObj;
+        String text;
         long time = 0;
 
-        public TransitionScreen (Screen noviScreen, String text) : base()
+        public TransitionScreen (Screen ScreenGdjeIdem, String text) : base()
         {
 
             this.upper = new MovableObject();
             this.lower = new MovableObject();
+            textObj = new TextObject("test");
+            this.NewScreen = ScreenGdjeIdem;
+            this.text = text;
         }
         public override void LoadContent()
         {
@@ -36,6 +41,11 @@ namespace Battle_city_online
             this.lower.Movement.Direction = Movement.DIRECTION.UP;
             this.lower.Position = new Vector2(0, ScreenManager.Instance.Dimensions.Y);
             this.lower.Scale = new Vector2(ScreenManager.Instance.Dimensions.X, ScreenManager.Instance.Dimensions.Y / 2);
+
+            textObj.Text = "hashahhsah";
+            textObj.Position = new Vector2(ScreenManager.Instance.Dimensions.X / 2, ScreenManager.Instance.Dimensions.Y / 2);
+            textObj.Color = Color.Black;
+            
         }
         override public void Update(GameTime time)
         {
@@ -49,25 +59,12 @@ namespace Battle_city_online
                 this.lower.Position = new Vector2(0, 0 + ScreenManager.Instance.Dimensions.Y /2);
             }
 
-    public void UnloadContent()
-        {
-            this.CurrentScreen.UnloadContent();
-        }
+            if (this.time > (int)ScreenManager.Instance.Dimensions.Y / 2 + 600)
+            {
+                ScreenManager.Instance.SetNewScreen(NewScreen);
+            }
+   
 
-            if (this.NewScreen != null)
-            {
-                if (this.CurrentScreen != null)
-                    this.CurrentScreen.UnloadContent();
-                this.CurrentScreen = this.NewScreen;
-                this.CurrentScreen.LoadContent();
-                this.NewScreen = null;
-                this.ScreenTime = gameTime.TotalGameTime;
-                gameTime.TotalGameTime -= this.ScreenTime;
-            }
-            if (this.CurrentScreen != null)
-            {
-                this.CurrentScreen.Update(gameTime);
-            }
         }
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch batch)
         {
@@ -78,7 +75,7 @@ namespace Battle_city_online
             
             if(this.time > (int)ScreenManager.Instance.Dimensions.Y / 2)
             {
-                //pokazi text
+                textObj.Draw(batch);
             }
 
         }

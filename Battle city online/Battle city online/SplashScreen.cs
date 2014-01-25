@@ -45,7 +45,7 @@ namespace Battle_city_online
                 this.textObj.visible = false;
             if(time.TotalGameTime.Seconds > 3)
             {
-                ScreenManager.Instance.SetNewScreen(new TransitionScreen());
+                ScreenManager.Instance.SetNewScreen(new TestScreen(),"Stage 1");
             }
         }
 
