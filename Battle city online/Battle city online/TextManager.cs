@@ -121,14 +121,14 @@ namespace Battle_city_online
             Console.WriteLine("ok");
         }
         
-        public void Draw(string name, string text, Vector2 position, SpriteBatch batch)
+        public void Draw(string fontName, string text, Vector2 position, SpriteBatch batch)
         {
-            Draw(name, text, position, batch, Color.White);
+            Draw(fontName, text, position, batch, Color.White);
         }
 
-        public void Draw(string name, string text, Vector2 position, SpriteBatch batch, Color color)
+        public void Draw(string fontName, string text, Vector2 position, SpriteBatch batch, Color color)
         {
-            FontData font = this.fonts[name];
+            FontData font = this.fonts[fontName];
             Texture2D texture = this.textures[font.texture];
             int width = font.spacingX;
             int height = font.spacingY;
@@ -144,8 +144,8 @@ namespace Battle_city_online
             int index=-1;
             if (font.spacing == FontData.Spacing.CONSTANT_NUMBER)
             {
-                rect.Width = width;
-                rect.Height = height;
+                rect.Width = width - 2;
+                rect.Height = height - 2;
             }
             foreach (char c in text)
             {
@@ -154,12 +154,26 @@ namespace Battle_city_online
                 if (pos == -1) continue;
                 if (font.spacing == FontData.Spacing.CONSTANT_NUMBER)
                 {
-                    rect.X = (pos % (texture.Width / width)) * width;
-                    rect.Y = (pos / (texture.Width / width)) * width;
+                    rect.X = (pos % (texture.Width / width)) * width + 1;
+                    rect.Y = (pos / (texture.Width / width)) * width + 1;
                 }
                 currentPosition.X += rect.Width;
                 batch.Draw(texture, currentPosition, rect, color);
             }
+        }
+
+        public Vector2 GetSize(string fontName, string text)
+        {
+            FontData font = this.fonts[fontName];
+            Texture2D texture = this.textures[font.texture];
+            int width, height;
+            if (font.spacing == FontData.Spacing.CONSTANT_NUMBER)
+            {
+                width = texture.Width / font.spacingX;
+                height = texture.Width / font.spacingX;
+                return new Vector2(width * text.Length, height);
+            }
+            return Vector2.Zero;
         }
     }
 }

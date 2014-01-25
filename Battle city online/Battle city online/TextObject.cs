@@ -12,6 +12,10 @@ namespace Battle_city_online
     {
         public string Text = "";
         public Color Color { get; set; }
+        public Vector2 Size { get
+        {
+            return TextManager.Instance.GetSize(this.fontName, this.Text);
+        }}
         private string fontName;
         public TextObject(string fontName)
         {

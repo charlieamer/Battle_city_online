@@ -43,7 +43,7 @@ namespace Battle_city_online
             this.lower.Scale = new Vector2(ScreenManager.Instance.Dimensions.X, ScreenManager.Instance.Dimensions.Y / 2);
 
             textObj.Text = "hashahhsah";
-            textObj.Position = new Vector2(ScreenManager.Instance.Dimensions.X / 2, ScreenManager.Instance.Dimensions.Y / 2);
+            textObj.Position = new Vector2(ScreenManager.Instance.Dimensions.X / 2 - textObj.Size.X / 2, ScreenManager.Instance.Dimensions.Y / 2 - textObj.Size.Y / 2);
             textObj.Color = Color.Black;
             
         }

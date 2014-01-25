@@ -70,7 +70,7 @@ namespace Battle_city_online
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Opaque, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullNone);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullNone);
 
             if (this.CurrentScreen != null)
                 this.CurrentScreen.Draw(spriteBatch);
