@@ -14,9 +14,10 @@ namespace Battle_city_online
     {
         MovableObject upper;
         MovableObject lower;
+        private Screen CurrentScreen, NewScreen;
         long time = 0;
 
-        public TransitionScreen () : base()
+        public TransitionScreen (Screen noviScreen, String text) : base()
         {
 
             this.upper = new MovableObject();
@@ -43,8 +44,29 @@ namespace Battle_city_online
             {
                 this.upper.Position = new Vector2(0, 0);
                 this.upper.Movement.Speed = 0;
-                this.lower.Position = new Vector2(0, ScreenManager.Instance.Dimensions.Y / 2);
+
                 this.lower.Movement.Speed = 0;
+                this.lower.Position = new Vector2(0, 0 + ScreenManager.Instance.Dimensions.Y /2);
+            }
+
+    public void UnloadContent()
+        {
+            this.CurrentScreen.UnloadContent();
+        }
+
+            if (this.NewScreen != null)
+            {
+                if (this.CurrentScreen != null)
+                    this.CurrentScreen.UnloadContent();
+                this.CurrentScreen = this.NewScreen;
+                this.CurrentScreen.LoadContent();
+                this.NewScreen = null;
+                this.ScreenTime = gameTime.TotalGameTime;
+                gameTime.TotalGameTime -= this.ScreenTime;
+            }
+            if (this.CurrentScreen != null)
+            {
+                this.CurrentScreen.Update(gameTime);
             }
         }
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch batch)
@@ -53,6 +75,11 @@ namespace Battle_city_online
 
             upper.Draw(batch, time);
             lower.Draw(batch, time);
+            
+            if(this.time > (int)ScreenManager.Instance.Dimensions.Y / 2)
+            {
+                //pokazi text
+            }
 
         }
 
