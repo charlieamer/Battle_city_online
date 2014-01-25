@@ -12,11 +12,8 @@ namespace Battle_city_online
     abstract class GameObject
     {
         protected ContentManager ContentManager;
-        public Vector2 Position
-        {
-            get;
-            set;
-        }
+        public bool visible = true;
+        public Vector2 Position = new Vector2(0, 0);
         public virtual void LoadContent(ContentManager ContentManager)
         {
             this.ContentManager = ContentManager;

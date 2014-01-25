@@ -52,6 +52,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SDL.dll" />
+    <Content Include="workdir\fontovi\cells.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="workdir\fontovi\cells.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="workdir\fontovi\font.xml" />
+    <Content Include="workdir\fontovi\HGE_font1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="workdir\slike\BattleCitySheet1.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -66,6 +76,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FontData.cs" />
+    <Compile Include="TextManager.cs" />
+    <Compile Include="TextObject.cs" />
     <Compile Include="TransitionScreen.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="MainGame.cs" />
@@ -80,6 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

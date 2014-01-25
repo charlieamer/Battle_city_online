@@ -23,8 +23,10 @@ namespace Battle_city_online
 
         private void Load(ContentManager ContentManager, string Path)
         {
+            Console.Write("Loading texture '" + Path + "' ... ");
             base.LoadContent(ContentManager);
             this.Texture = this.ContentManager.Load<Texture2D>(Path);
+            Console.WriteLine("ok");
         }
 
         public void LoadContent(ContentManager ContentManager, string Path)
@@ -41,6 +43,7 @@ namespace Battle_city_online
 
         override public void Draw(SpriteBatch SpriteBatch)
         {
+            if (this.visible)
             SpriteBatch.Draw(this.Texture, this.Position, this.SourceRect, Color.White, 0.0f, Vector2.Zero, this.Scale, SpriteEffects.None, 0.0f);
         }
 
