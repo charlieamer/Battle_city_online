@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SpriteSheet>
+	<Sprite name = "Tank1GreenUp1">
+		<x>197</x>
+		<y>15</y>
+		<width>13</width>
+		<height>13</height>
+	</Sprite>
+	<Sprite name = "Tank1GreenUp2">
+		<x>213</x>
+		<y>15</y>
+		<width>13</width>
+		<height>13</height>
+	</Sprite>
+	<Sprite name = "Tank1GreenRight1">
+		<x>229</x>
+		<y>29</y>
+		<width>13</width>
+		<height>13</height>
+	</Sprite>
+	<Sprite name = "Tank1GreenRight2">
+		<x>229</x>
+		<y>45</y>
+		<width>13</width>
+		<height>13</height>
+	</Sprite>
+	<Sprite name = "Tank1GreenDown1">
+		<x>197</x>
+		<y>62</y>
+		<width>13</width>
+		<height>13</height>
+	</Sprite>
+	<Sprite name = "Tank1GreenDown2">
+		<x>213</x>
+		<y>62</y>
+		<width>13</width>
+		<height>13</height>
+	</Sprite>
+	<Sprite name = "Tank1GreenLeft1">
+		<x>182</x>
+		<y>30</y>
+		<width>13</width>
+		<height>13</height>
+	</Sprite>
+	<Sprite name = "Tank1GreenLeft2">
+		<x>182</x>
+		<y>46</y>
+		<width>13</width>
+		<height>13</height>
+	</Sprite>
+</SpriteSheet>

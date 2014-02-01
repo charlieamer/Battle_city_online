@@ -11,15 +11,16 @@ namespace Battle_city_online
 {
     public class TestScreen:Screen
     {
-        MovableObject obj;
+        NamedSpriteObject obj;
         long time = 0;
         override public void LoadContent()
         {
             base.LoadContent();
-            this.obj = new MovableObject();
-            this.obj.LoadContent(this.ContentManager, "workdir/slike/BattleCitySheet1.png");
+            this.obj = new NamedSpriteObject();
+            this.obj.LoadContent(this.ContentManager, "workdir/slike/BattleCitySheet1.png", "workdir/slike/Sheet.xml");
             this.obj.Movement.Direction = Movement.DIRECTION.RIGHT;
-            this.obj.Scale += new Vector2(1,3);
+            this.obj.Scale += new Vector2(3,3);
+            this.obj.setSprite("Tank1GreenRight1");
         }
         override public void UnloadContent()
         {
@@ -29,10 +30,17 @@ namespace Battle_city_online
         override public void Update(GameTime time)
         {
             this.time = (long)time.TotalGameTime.TotalMilliseconds/10;
+            if (this.time % 10 > 5)
+            {
+                this.obj.setSprite("Tank1GreenRight1");
+            } else
+            {
+                this.obj.setSprite("Tank1GreenRight2");
+            }
         }
         override public void Draw(SpriteBatch batch)
         {
-            obj.Draw(batch, this.time);
+            obj.Draw(batch, time);
         }
     }
 }

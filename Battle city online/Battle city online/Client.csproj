@@ -71,12 +71,16 @@
     <Content Include="workdir\slike\podovi.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="workdir\slike\Sheet.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="workdir\slike\tranPic.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FontData.cs" />
+    <Compile Include="NamedSpriteObject.cs" />
     <Compile Include="TextManager.cs" />
     <Compile Include="TextObject.cs" />
     <Compile Include="TransitionScreen.cs" />
